@@ -1,2 +1,2 @@
-const url = 'http://localhost:3000';
+const url = "https://witch-1.onrender.com";
 export default url;
