@@ -22,7 +22,11 @@ router.post("/", (req, res) => {
         if (match) {
           const jwtToken = createToken(email);
           // console.log(jwtToken);
-          res.cookie("token", jwtToken, { maxAge: 604800, sameSite: "none" });
+          res.cookie("token", jwtToken, {
+            maxAge: 604800,
+            sameSite: "none",
+            secure: false,
+          });
           return res.status(200).send(jwtToken);
         } else {
           return res.status(401).send("Incorrect Password");
