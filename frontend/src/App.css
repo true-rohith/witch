@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #ffffff;
+}
+
+/* For Firefox */
+::-webkit-scrollbar{
+    width: 5px;
+}
+html {
+    scrollbar-color: #000000 #ffffff; /* Handle color, Track color */
+}
