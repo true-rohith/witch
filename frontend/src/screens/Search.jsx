@@ -7,6 +7,7 @@ import axios from "axios";
 import Card from "../components/Search/Card";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../components/LoadingComponent";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ const Search = () => {
 
   const [search, setSearch] = useState("");
   const [productsData, setProductsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const url = URL;
 
   const fetchData = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.post(`${url}/search`, { search });
       if (Array.isArray(response.data)) {
         setProductsData(response.data);
@@ -28,6 +31,7 @@ const Search = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+    setIsLoading(false);
   };
 
   const handleSubmit = (e) => {
@@ -68,25 +72,34 @@ const Search = () => {
         />
       </div>
 
-      <div className="w-full h-full p-6">
+      <div className="relative w-full h-full p-6">
         <div className="w-full h-full flex flex-wrap justify-center gap-5 bg-gray-300 p-6">
-          {productsData.map((data, index) => {
-            if (index < 8)
-              return (
-                <>
-                  <Card key={data.id} product={data} />
-                </>
-              );
-          })}
-          <Link to={"/allproducts"}>
-            <div
-              onClick={() => dispatch(searchClose())}
-              className="flex justify-center items-center rounded-xl p-2 h-[40px] bg-white mt-4 text-blue-600 cursor-pointer"
-            >
-              See All Products...
-            </div>
-          </Link>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              {productsData.map((data, index) => {
+                if (index < 8)
+                  return (
+                    <>
+                      <Card key={data.id} product={data} />
+                    </>
+                  );
+              })}
+            </>
+          )}
         </div>
+        <Link
+          className="absolute bottom-10 flex justify-center w-full"
+          to={"/allproducts"}
+        >
+          <div
+            onClick={() => dispatch(searchClose())}
+            className=" flex justify-center items-center rounded-xl p-2 h-[40px] bg-white mt-4 text-blue-600 cursor-pointer"
+          >
+            See All Products...
+          </div>
+        </Link>
       </div>
     </div>
   );
