@@ -25,8 +25,6 @@ router.post("/", (req, res) => {
           res.cookie("token", jwtToken, {
             maxAge: 604800000,
             sameSite: "none",
-            secure: false,
-            httpOnly: false,
           });
           return res.status(200).send(jwtToken);
         } else {
