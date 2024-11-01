@@ -5,9 +5,12 @@ import Card from "../components/Card";
 import URL from "../../constants/url";
 import { FaChevronUp } from "react-icons/fa";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loading, loaded } from "../../redux/slices/IsLoading";
 
 const AllProducts = () => {
   const url = URL;
+  const dispatch = useDispatch();
   const checkboxArray = [
     "shirts",
     "t-shirts",
@@ -37,6 +40,7 @@ const AllProducts = () => {
   const fetchData = async () => {
     setSortOpen(false);
     try {
+      dispatch(loading());
       const response = await axios.get(`${url}/allproducts`, {
         params: {
           category: checkedCategory,
@@ -56,6 +60,7 @@ const AllProducts = () => {
     } catch (error) {
       console.error("Error fetching products:", error);
     }
+    dispatch(loaded());
   };
 
   useEffect(() => {

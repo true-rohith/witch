@@ -18,6 +18,7 @@ import Search from "./screens/Search";
 import AllProducts from "./screens/AllProducts";
 import { dataFetched } from "../redux/slices/UserInfo";
 import userData from "../user_info/userInfo";
+import { loaded, loading } from "../redux/slices/IsLoading";
 
 function App() {
   const cookie = new Cookies();
@@ -43,11 +44,13 @@ function App() {
 
   const fetchUserData = async () => {
     try {
+      dispatch(loading());
       const res = await userData();
       dispatch(dataFetched(res[0]));
     } catch (error) {
       console.log(error);
     }
+    dispatch(loaded());
   };
 
   useEffect(() => {
@@ -96,7 +99,7 @@ function App() {
 
         {/* loading */}
         {isLoading && (
-          <div className="w-full h-full absolute top-0 z-30">
+          <div className="mt-[80px] w-full h-full absolute top-0 z-30">
             <Loading />
           </div>
         )}

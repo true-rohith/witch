@@ -4,10 +4,9 @@ const jwt = require("jsonwebtoken");
 const db = require("../configs/db");
 const jwt_secrete = process.env.JWT_SECRETE_KEY;
 
-
-router.get("/", (req, res) => {
+router.post("/", (req, res) => {
   // Check if the token exists in the cookies
-  const jwt_token = req.cookies.token;
+  const jwt_token = req.body.jwt_token;
 
   if (!jwt_token) {
     return res.status(401).json({ error: "Unauthorized, no token provided" });
