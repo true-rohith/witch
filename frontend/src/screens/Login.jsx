@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loading, loaded } from "../../redux/slices/IsLoading";
-import { loggedIn, loggedOut } from "../../redux/slices/isLoggedIn";
+import { loggedIn, loggedOut } from "../../redux/slices/IsLoggedIn";
 import Cookies from "universal-cookie";
 import url from "../../constants/url";
 

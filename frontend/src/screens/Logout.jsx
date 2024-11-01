@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { loaded, loading } from "../../redux/slices/IsLoading";
 import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
-import { loggedOut } from "../../redux/slices/isLoggedIn";
+import { loggedOut } from "../../redux/slices/IsLoggedIn";
 import url from "../../constants/url";
 
 const Logout = () => {

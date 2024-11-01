@@ -10,7 +10,7 @@ import Register from "./screens/Register";
 import Loading from "./screens/Loading";
 import Logout from "./screens/Logout";
 import ProfilePage from "./screens/Profile";
-import { loggedIn, loggedOut } from "../redux/slices/isLoggedIn";
+import { loggedIn, loggedOut } from "../redux/slices/IsLoggedIn";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import Admin from "./screens/Admin";
