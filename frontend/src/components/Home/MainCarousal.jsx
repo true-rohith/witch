@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import main1 from "../assets/main1.png";
-import main2 from "../assets/main2.png";
-import main3 from "../assets/main3.png";
-import main4 from "../assets/main4.png";
+import main1 from "../../assets/main1.png";
+import main2 from "../../assets/main2.png";
+import main3 from "../../assets/main3.png";
+import main4 from "../../assets/main4.png";
 
 const MainCarousal = () => {
   const [image, setImage] = useState(1);
-
   const arr = [1, 2, 3, 4];
 
   function scroll() {
@@ -49,8 +48,6 @@ const MainCarousal = () => {
           src={main4}
           alt="Image Main 4"
         />
-
-        {/* Dot Navigation */}
         <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-5 flex gap-3">
           {arr.map((ind) => (
             <div
