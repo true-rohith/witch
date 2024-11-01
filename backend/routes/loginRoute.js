@@ -23,9 +23,10 @@ router.post("/", (req, res) => {
           const jwtToken = createToken(email);
           // console.log(jwtToken);
           res.cookie("token", jwtToken, {
-            maxAge: 604800,
+            maxAge: 604800000,
             sameSite: "none",
             secure: false,
+            httpOnly: false,
           });
           return res.status(200).send(jwtToken);
         } else {
