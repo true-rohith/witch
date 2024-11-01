@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import IsCartOpenReducer from "../slices/IsCartOpen";
 import IsLoading from "../slices/IsLoading";
-import IsLoggedIn from "../slices/isLoggedIn";
+import IsLoggedIn from "../slices/IsLoggedIn";
 import IsSearchOpen from "../slices/IsSearchOpen";
 import UserInfo from "../slices/UserInfo";
 export default configureStore({

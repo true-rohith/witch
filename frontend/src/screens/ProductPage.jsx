@@ -8,7 +8,6 @@ import URL from "../../constants/url";
 
 export default function ProductPage() {
   const url = URL;
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");

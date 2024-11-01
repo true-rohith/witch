@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="max-w-xs h-[200px] flex gap-2 bg-white rounded-lg shadow-md overflow-hidden">
+    <Link
+      className="max-w-xs h-[200px] flex gap-2 bg-white rounded-lg shadow-md overflow-hidden"
+      to={`/product?id=${product.id}`}
+    >
       <img
         className="w-[40%] object-cover"
         src={`data:image/jpeg;base64,${product.image}`}
@@ -12,7 +16,7 @@ const ProductCard = ({ product }) => {
         <h2 className="text-lg font-semibold">{product.name}</h2>
         <p className="text-gray-500">${product.price}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
