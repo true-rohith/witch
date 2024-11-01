@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import url from "../../../constants/url";
 import Loading from "../LoadingComponent";
+import banner1 from "../../../src/assets/Shirt-Tshirt-Jeans/image1.png";
 
 function ShirtTshirtJeans() {
   const [selected, setSelected] = useState("shirts");
@@ -91,11 +92,7 @@ function ShirtTshirtJeans() {
           </Link>
         </div>
         <div className="w-full mb-9">
-          <img
-            className="w-full"
-            src="../../../src/assets/Shirt-Tshirt-Jeans/image1.png"
-            alt="Promotional Banner"
-          />
+          <img className="w-full" src={banner1} alt="Promotional Banner" />
         </div>
       </div>
     </>
