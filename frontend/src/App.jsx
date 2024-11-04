@@ -44,13 +44,13 @@ function App() {
 
   const fetchUserData = async () => {
     try {
-      dispatch(loading());
+      // dispatch(loading());
       const res = await userData();
       dispatch(dataFetched(res[0]));
     } catch (error) {
       console.log(error);
     }
-    dispatch(loaded());
+    // dispatch(loaded());
   };
 
   useEffect(() => {
